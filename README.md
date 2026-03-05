@@ -1,3 +1,4 @@
+<!-- Plugin description -->
 # sql-params-setter
 
       A simple Intellji IDEA plugin that helps you to extract a executable sql from mybatis logs like below:
@@ -9,3 +10,5 @@
 
       Note:
         The selected area should contain both keyword [Preparing:] in the 1st line and keyword [Parameters:] in the 2nd line.
+
+<!-- Plugin description end -->

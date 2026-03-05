@@ -1,6 +1,6 @@
-package bean;
+package com.yangchenwen.sqlparamssetter.bean;
 
-import static constants.Const.*;
+import static com.yangchenwen.sqlparamssetter.constants.Const.*;
 
 /**
  * @author yangchenwen
@@ -46,6 +46,27 @@ public class Parameter {
         },
 
         DATE {
+            @Override
+            public String decorate(String value) {
+                return String.format("'%s'", value);
+            }
+        },
+
+        LOCALDATE {
+            @Override
+            public String decorate(String value) {
+                return String.format("'%s'", value);
+            }
+        },
+
+        LOCALDATETIME {
+            @Override
+            public String decorate(String value) {
+                return String.format("'%s'", value);
+            }
+        },
+
+        LOCALTIME {
             @Override
             public String decorate(String value) {
                 return String.format("'%s'", value);

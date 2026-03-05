@@ -1,7 +1,7 @@
-package util;
+package com.yangchenwen.sqlparamssetter.util;
 
-import bean.Parameter;
-import org.apache.commons.lang.StringUtils;
+import com.yangchenwen.sqlparamssetter.bean.Parameter;
+import org.apache.commons.lang3.StringUtils;
 import org.hibernate.engine.jdbc.internal.BasicFormatterImpl;
 import org.hibernate.engine.jdbc.internal.Formatter;
 
@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 
-import static constants.Const.*;
+import static com.yangchenwen.sqlparamssetter.constants.Const.*;
 
 /**
  * @author yangchenwen

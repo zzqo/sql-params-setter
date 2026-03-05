@@ -1,0 +1,100 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <id>com.yangchenwen.sqlparamssetter</id>
+    <name>SQL Params Setter</name>
+    <version>1.2.0</version>
+    <vendor email="ads8528@163.com" url="https://github.com/yangchenwen/sql-params-setter">yangchenwen</vendor>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <resource-bundle>messages.SqlParamsSetterBundle</resource-bundle>
+
+    <description><![CDATA[
+      <p>
+      A simple tool that helps you to extract a executable sql from mybatis logs like below:
+      </p>
+      <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;==> Preparing: select * from table where name = ?
+      </p>
+      <p>
+          &nbsp;&nbsp;&nbsp;&nbsp;==> Parameters: Tom(String)
+      </p>
+      <p>
+      After selecting these two lines of logs above, you can right click your mouse
+      and select "SQL Params Setter" in the popup menu, then the result executable sql,
+      i.e. "select * from table where name = 'Tom'" will be copied to your clipboard.
+      </p>
+      <br/>
+      <p>
+        <b>Note:</b>
+        <ul>
+          <li>The selected area should contain both keyword [Preparing:] in the 1st line and keyword [Parameters:] in the 2nd line.</li>
+        </ul>
+      </p>
+      <br/>
+      <p>
+        <b><a href="https://github.com/yangchenwen/sql-params-setter">Github</a></b>
+      </p>
+    ]]></description>
+
+    <change-notes><![CDATA[
+      <p><b>v1.2.0</b>
+        <ul>
+          <li>Refactored project based on intellij-platform-plugin-template v2.4.1</li>
+          <li>Added support for LocalDate, LocalDateTime, and LocalTime types</li>
+          <li>Added i18n internationalization</li>
+        </ul>
+      </p>
+
+      <p><b>v1.1</b>
+        <ul>
+          <li>New version for build 203.3645.34 or newer</li>
+          <li>Fix a bug</li>
+        </ul>
+     </p>
+
+      <p><b>v1.0.3</b>
+        <ul>
+          <li>Fix Bug: Crash when params contains "null".</li>
+        </ul>
+      </p>
+
+      <p><b>v1.0.2</b>
+        <ul>
+          <li>Fix Bug: Params setting is not functional.</li>
+        </ul>
+      </p>
+
+      <p><b>v1.0.1</b>
+        <ul>
+          <li>Using Hibernate SQL formatter.</li>
+        </ul>
+      </p>
+
+      <p><b>v1.0</b>
+        <ul>
+          <li>Basic function of extracting one executable sql at a time from mybatis logs.</li>
+        </ul>
+      </p>
+    ]]>
+    </change-notes>
+
+    <!-- please see https://www.jetbrains.org/intellij/sdk/docs/basics/getting_started/plugin_compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
+    <depends>com.intellij.modules.java</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <notificationGroup id="SqlParamsSetter.NotificationGroup" displayType="BALLOON" isLogByDefault="true" key="SqlParamsSetter.NotificationGroup"/>
+    </extensions>
+
+    <actions>
+        <!-- Add your actions here -->
+        <action id="actions.PreparedSqlParamsSetterAction" class="com.yangchenwen.sqlparamssetter.actions.PreparedSqlParamsSetterAction"
+                text="SQL Params Setter" icon="com.yangchenwen.sqlparamssetter.icons.Icons.PluginIcon">
+            <add-to-group group-id="ConsoleEditorPopupMenu" anchor="first"/>
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+        </action>
+    </actions>
+</idea-plugin>

@@ -1,4 +1,4 @@
-package constants;
+package com.yangchenwen.sqlparamssetter.constants;
 
 import java.util.regex.Pattern;
 

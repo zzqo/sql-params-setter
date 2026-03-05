@@ -66,7 +66,7 @@ public class BasicFormatterImpl implements Formatter {
     }
 
     private static final String INDENT_STRING = "    ";
-    private static final String INITIAL = System.lineSeparator() + "";
+    private static final String INITIAL = System.lineSeparator();
 
     @Override
     public String format(String source) {
